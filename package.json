@@ -1,0 +1,23 @@
+{
+  "name": "youngjs",
+  "version": "0.1.0",
+  "description": "javascript util",
+  "main": "./src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/young-js/youngjs.git"
+  },
+  "keywords": [
+    "es6",
+    "javascript"
+  ],
+  "author": "young-js",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/young-js/youngjs/issues"
+  },
+  "homepage": "https://github.com/young-js/youngjs#readme"
+}
