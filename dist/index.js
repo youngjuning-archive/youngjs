@@ -1,4 +1,14 @@
-/******/ (function(modules) { // webpackBootstrap
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory();
+	else if(typeof define === 'function' && define.amd)
+		define([], factory);
+	else {
+		var a = factory();
+		for(var i in a) (typeof exports === 'object' ? exports : root)[i] = a[i];
+	}
+})(window, function() {
+return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
 /******/
@@ -81,7 +91,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = "./src/index.js");
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/YArray.js");
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -130,39 +140,17 @@ eval("var arrayWithoutHoles = __webpack_require__(/*! ./arrayWithoutHoles */ \".
 
 /***/ }),
 
-/***/ "./node_modules/webpack/buildin/harmony-module.js":
-/*!*******************************************!*\
-  !*** (webpack)/buildin/harmony-module.js ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-eval("module.exports = function (originalModule) {\n  if (!originalModule.webpackPolyfill) {\n    var module = Object.create(originalModule); // module.parent = undefined by default\n\n    if (!module.children) module.children = [];\n    Object.defineProperty(module, \"loaded\", {\n      enumerable: true,\n      get: function () {\n        return module.l;\n      }\n    });\n    Object.defineProperty(module, \"id\", {\n      enumerable: true,\n      get: function () {\n        return module.i;\n      }\n    });\n    Object.defineProperty(module, \"exports\", {\n      enumerable: true\n    });\n    module.webpackPolyfill = 1;\n  }\n\n  return module;\n};\n\n//# sourceURL=webpack:///(webpack)/buildin/harmony-module.js?");
-
-/***/ }),
-
 /***/ "./src/YArray.js":
 /*!***********************!*\
   !*** ./src/YArray.js ***!
   \***********************/
-/*! no exports provided */
+/*! exports provided: countItem, sortByKey, concatByKey, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ \"./node_modules/@babel/runtime/helpers/toConsumableArray.js\");\n/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__);\n\n\n/**\n* 统计数组每一项的数量\n* @param  {[array]} array [需要统计的数组]\n* @return {[array]}       [统计后的数组]\n*/\nvar countItem = function countItem(array) {\n  var obj = {};\n  array.forEach(function (item) {\n    // 把当前项当做属性名\n    var attr = item;\n\n    if (!obj[attr]) {\n      // 如果对象中不存在该属性，则给对象添加该属性并赋值为1\n      obj[attr] = 1;\n    } else {\n      // 如果存在该属性，就加1\n      obj[attr] += 1;\n    }\n  });\n  return obj;\n};\n/**\n* 根据对象数组的某个key排序（支持升序和降序）\n* true 为升序，false 为降序；默认为升序\n* @url http://t.cn/z8SDZpC\n*/\n\n\nvar sortByKey = function sortByKey(array, key) {\n  var ascend = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;\n\n  if (!Array.isArray(array)) {\n    return '第一个参数必须是数组';\n  }\n\n  if (typeof key !== 'string') {\n    return '第二个参数必须是字符串';\n  }\n\n  if (typeof ascend !== 'boolean') {\n    return '第三个参数必须是布尔值';\n  }\n\n  if (ascend) {\n    return array.sort(function (a, b) {\n      if (a[key] > b[key]) {\n        return 1;\n      }\n\n      if (a[key] < b[key]) {\n        return -1;\n      }\n\n      return 0;\n    });\n  }\n\n  return array.sort(function (a, b) {\n    if (a[key] < b[key]) {\n      return 1;\n    }\n\n    if (a[key] > b[key]) {\n      return -1;\n    }\n\n    return 0;\n  });\n};\n/**\n * 合并数组中每个对象中的指定数组\n *\n * @param  {[array]} array  [数组]\n * @param  {[string]} key   [属性键]\n *\n * @return {[array]}        [数组]\n */\n\n\nvar concatByKey = function concatByKey(array, key) {\n  var tempArr = [];\n  array.forEach(function (item) {\n    tempArr.push.apply(tempArr, _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default()(item[key]));\n  });\n  return tempArr;\n};\n\nmodule.exports = {\n  countItem: countItem,\n  sortByKey: sortByKey,\n  concatByKey: concatByKey\n};\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../node_modules/webpack/buildin/harmony-module.js */ \"./node_modules/webpack/buildin/harmony-module.js\")(module)))\n\n//# sourceURL=webpack:///./src/YArray.js?");
-
-/***/ }),
-
-/***/ "./src/index.js":
-/*!**********************!*\
-  !*** ./src/index.js ***!
-  \**********************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* WEBPACK VAR INJECTION */(function(module) {/* harmony import */ var _YArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./YArray */ \"./src/YArray.js\");\n\nmodule.exports = {\n  YArray: _YArray__WEBPACK_IMPORTED_MODULE_0__[\"default\"]\n};\n/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../node_modules/webpack/buildin/harmony-module.js */ \"./node_modules/webpack/buildin/harmony-module.js\")(module)))\n\n//# sourceURL=webpack:///./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"countItem\", function() { return countItem; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"sortByKey\", function() { return sortByKey; });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"concatByKey\", function() { return concatByKey; });\n/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ \"./node_modules/@babel/runtime/helpers/toConsumableArray.js\");\n/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__);\n\n\n/**\n* 统计数组每一项的数量\n* @param  {[array]} array [需要统计的数组]\n* @return {[array]}       [统计后的数组]\n*/\nvar countItem = function countItem(array) {\n  var obj = {};\n  array.forEach(function (item) {\n    // 把当前项当做属性名\n    var attr = item;\n\n    if (!obj[attr]) {\n      // 如果对象中不存在该属性，则给对象添加该属性并赋值为1\n      obj[attr] = 1;\n    } else {\n      // 如果存在该属性，就加1\n      obj[attr] += 1;\n    }\n  });\n  return obj;\n};\n/**\n* 根据对象数组的某个key排序（支持升序和降序）\n* true 为升序，false 为降序；默认为升序\n* @url http://t.cn/z8SDZpC\n*/\n\n\nvar sortByKey = function sortByKey(array, key) {\n  var ascend = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : true;\n\n  if (!Array.isArray(array)) {\n    return '第一个参数必须是数组';\n  }\n\n  if (typeof key !== 'string') {\n    return '第二个参数必须是字符串';\n  }\n\n  if (typeof ascend !== 'boolean') {\n    return '第三个参数必须是布尔值';\n  }\n\n  if (ascend) {\n    return array.sort(function (a, b) {\n      if (a[key] > b[key]) {\n        return 1;\n      }\n\n      if (a[key] < b[key]) {\n        return -1;\n      }\n\n      return 0;\n    });\n  }\n\n  return array.sort(function (a, b) {\n    if (a[key] < b[key]) {\n      return 1;\n    }\n\n    if (a[key] > b[key]) {\n      return -1;\n    }\n\n    return 0;\n  });\n};\n/**\n * 合并数组中每个对象中的指定数组\n *\n * @param  {[array]} array  [数组]\n * @param  {[string]} key   [属性键]\n *\n * @return {[array]}        [数组]\n */\n\n\nvar concatByKey = function concatByKey(array, key) {\n  var tempArr = [];\n  array.forEach(function (item) {\n    tempArr.push.apply(tempArr, _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default()(item[key]));\n  });\n  return tempArr;\n};\n\n\n/* harmony default export */ __webpack_exports__[\"default\"] = ({\n  countItem: countItem,\n  sortByKey: sortByKey,\n  concatByKey: concatByKey\n});\n\n//# sourceURL=webpack:///./src/YArray.js?");
 
 /***/ })
 
 /******/ });
+});

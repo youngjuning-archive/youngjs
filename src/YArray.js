@@ -64,7 +64,13 @@ const concatByKey = (array, key) => {
   return tempArr
 }
 
-module.exports = {
+export {
+  countItem,
+  sortByKey,
+  concatByKey,
+}
+
+export default {
   countItem,
   sortByKey,
   concatByKey,
