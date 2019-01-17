@@ -1,8 +1,5 @@
 import YArray from './YArray'
 
-export {
-  YArray,
-}
-export default {
+module.exports = {
   YArray,
 }

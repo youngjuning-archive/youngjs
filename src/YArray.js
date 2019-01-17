@@ -48,7 +48,7 @@ const sortArrayByKey = (array, key, ascend = true) => {
   })
 }
 
-export default {
+module.exports = {
   countArrayItem,
   sortArrayByKey,
 }
