@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import YArray from '..'
+import { YArray } from '../src/index'
 
 export default {
   created() {
