@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { YArray } from '../'
+import { YArray } from '..'
 
 export default {
   created() {
@@ -30,7 +30,7 @@ export default {
         age: 18,
       },
     ]
-    this.students = YArray.sortArrayByKey(students, 'age')
+    this.students = YArray.sortByKey(students, 'age')
   },
   data() {
     return {
