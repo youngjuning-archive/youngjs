@@ -3,7 +3,7 @@
 * @param  {[array]} array [需要统计的数组]
 * @return {[array]}       [统计后的数组]
 */
-const countArrayItem = (array) => {
+const countItem = (array) => {
   const obj = {}
   array.forEach((item) => {
     // 把当前项当做属性名
@@ -22,7 +22,7 @@ const countArrayItem = (array) => {
 * true 为升序，false 为降序；默认为升序
 * @url http://t.cn/z8SDZpC
 */
-const sortArrayByKey = (array, key, ascend = true) => {
+const sortByKey = (array, key, ascend = true) => {
   if (!Array.isArray(array)) { return '第一个参数必须是数组' }
   if ((typeof key) !== 'string') { return '第二个参数必须是字符串' }
   if ((typeof ascend) !== 'boolean') { return '第三个参数必须是布尔值' }
@@ -48,7 +48,24 @@ const sortArrayByKey = (array, key, ascend = true) => {
   })
 }
 
+/**
+ * 合并数组中每个对象中的指定数组
+ *
+ * @param  {[array]} array  [数组]
+ * @param  {[string]} key   [属性键]
+ *
+ * @return {[array]}        [数组]
+ */
+const concatByKey = (array, key) => {
+  const tempArr = []
+  array.forEach((item) => {
+    tempArr.push(...item[key])
+  })
+  return tempArr
+}
+
 module.exports = {
-  countArrayItem,
-  sortArrayByKey,
+  countItem,
+  sortByKey,
+  concatByKey,
 }
