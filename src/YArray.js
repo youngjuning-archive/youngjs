@@ -1,4 +1,23 @@
 /**
+* 统计数组每一项的数量
+* @param  {[array]} array [需要统计的数组]
+* @return {[array]}       [统计后的数组]
+*/
+const countArrayItem = (array) => {
+  const obj = {}
+  array.forEach((item) => {
+    // 把当前项当做属性名
+    const attr = item
+    if (!obj[attr]) { // 如果对象中不存在该属性，则给对象添加该属性并赋值为1
+      obj[attr] = 1
+    } else { // 如果存在该属性，就加1
+      obj[attr] += 1
+    }
+  })
+  return obj
+}
+
+/**
 * 根据对象数组的某个key排序（支持升序和降序）
 * true 为升序，false 为降序；默认为升序
 * @url http://t.cn/z8SDZpC
@@ -30,5 +49,6 @@ const sortArrayByKey = (array, key, ascend = true) => {
 }
 
 export default {
+  countArrayItem,
   sortArrayByKey,
 }
