@@ -1,5 +1,5 @@
 {
-  "name": "youngjs",
+  "name": "@youngjs/youngjs",
   "version": "0.2.0",
   "description": "javascript util",
   "main": "./src/index.js",
