@@ -1,9 +1,13 @@
-import YArray from './YArray'
+// import YArray from './YArray'
+const YArray = require('./YArray')
 
-export {
-  YArray,
-}
-
-export default {
+// export {
+//   YArray,
+// }
+//
+// export default {
+//   YArray,
+// }
+module.exports = {
   YArray,
 }
