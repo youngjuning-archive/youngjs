@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import YArray from '..'
+const { YArray } = require('../')
 
 export default {
   created() {

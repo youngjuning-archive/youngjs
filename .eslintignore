@@ -1,2 +1,4 @@
 **node_modules/**
 dist/
+_tests_/
+*.config.js
