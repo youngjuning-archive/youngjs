@@ -110,10 +110,24 @@ var YArray = {
   concatByKey: concatByKey
 };
 
+var formatCounterTime = function formatCounterTime(seconds) {
+  var hour = Math.floor(seconds / 3600);
+  var minute = Math.floor(seconds / 60);
+  var second = Math.floor(seconds - minute * 60);
+  hour = hour >= 10 ? hour : "0".concat(hour);
+  minute = minute >= 10 ? minute : "0".concat(minute);
+  second = second >= 10 ? second : "0".concat(second);
+  return "".concat(hour, ":").concat(minute, ":").concat(second);
+};
+var YDate = {
+  formatCounterTime: formatCounterTime
+};
+
 var index = {
-  YArray: YArray
+  YArray: YArray,
+  YDate: YDate
 };
 
 export default index;
-export { YArray };
+export { YArray, YDate };
 //# sourceMappingURL=youngjs.es.js.map
