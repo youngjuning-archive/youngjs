@@ -30,7 +30,7 @@ export default {
         age: 18,
       },
     ]
-    // this.students = YArray.sortByKey(students, 'age')
+    this.students = YArray.sortByKey(students, 'age')
     console.log(YArray)
   },
   data() {
