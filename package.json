@@ -1,14 +1,11 @@
 {
   "name": "@youngjs/youngjs",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "description": "javascript util",
-  "main": "dist/youngjs.cjs.js",
-  "module": "dist/youngjs.es.js",
+  "main": "dist/youngjs.js",
   "scripts": {
     "test": "jest",
-    "build": "yarn build:cjs && yarn build:es",
-    "build:cjs": "rollup -c rollup.cjs.config.js",
-    "build:es": "rollup -c rollup.es.config.js"
+    "build": "rollup -c rollup.config.js"
   },
   "files": [
     "dist"
