@@ -1,5 +1,7 @@
 # youngjs
 
+> support browser & node
+
 ## Install
 
 ```sh

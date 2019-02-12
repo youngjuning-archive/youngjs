@@ -1,11 +1,12 @@
 {
   "name": "@youngjs/youngjs",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "description": "javascript util",
   "main": "dist/youngjs.js",
   "scripts": {
     "test": "jest",
-    "build": "rollup -c rollup.config.js"
+    "build": "rollup -c rollup.config.js",
+    "prepublishOnly": "rollup -c rollup.config.js"
   },
   "files": [
     "dist"

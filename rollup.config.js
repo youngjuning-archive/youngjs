@@ -8,9 +8,9 @@ export default {
   input: 'src/index.js',
   output: {
     file: './dist/youngjs.js',
-    format: 'es', // amd,cjs,es,iife,umd
-    sourcemap: 'inline',
-    exports: 'named',
+    name: 'myBundle',
+    format: 'umd', // amd,cjs,es,iife,umd
+    sourcemap: 'inline'
   },
   plugins: [
     babel({
