@@ -1,13 +1,50 @@
 import { version } from '../package.json'
 
 // 数组并集
-const union = (a = [], b = []) => Array.from(new Set(a.concat(b)))
+function union(a: any[], b: any[]) {
+  return Array.from(new Set(a.concat(b)))
+}
+
+// 根据指定key，对数组对象进行合并去重
+function unionByKey(a: object[], b: object[], key: string) {
+  const keys: any = {}
+  const array = a.concat(b)
+  const result: any = []
+  array.forEach((item: any) => {
+    if (!keys[item[key]]) {
+      keys[item[key]] = item[key]
+      result.push(item)
+    }
+  })
+  return result
+}
+
+// 数组交集
+function intersection(a: any[], b: any[]) {
+  const aSet = new Set(a)
+  const bSet = new Set(b)
+  return Array.from(new Set(a.filter((v: any) => bSet.has(v))))
+}
+
+// 数组差集
+function difference(a: any[], b: any[]) {
+  const aSet = new Set(a)
+  const bSet = new Set(b)
+  return Array.from(new Set(a.concat(b).filter((v) => !aSet.has(v) || !bSet.has(v))))
+}
 
 export {
-  union
+  version,
+  union,
+  unionByKey,
+  intersection,
+  difference
 }
 
 export default {
   version,
-  union
+  union,
+  unionByKey,
+  intersection,
+  difference,
 }

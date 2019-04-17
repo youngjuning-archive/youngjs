@@ -1,6 +1,6 @@
 {
   "name": "@youngjs/youngjs",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "javascript util",
   "main": "dist/youngjs.cjs.js",
   "module": "dist/youngjs.esm.js",
@@ -13,6 +13,7 @@
   "files": [
     "dist"
   ],
+  "types": "dist/src/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/young-js/youngjs.git"
@@ -36,6 +37,7 @@
     "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-node-resolve": "^4.2.3",
     "rollup-plugin-typescript2": "^0.20.1",
+    "tslint": "^5.16.0",
     "typescript": "^3.4.3"
   },
   "dependencies": {
