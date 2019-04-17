@@ -1,4 +1,4 @@
-import { version } from '../package.json'
+import { author, version } from '../package.json'
 
 // 数组并集
 function union(a: any[], b: any[]): any[] {
@@ -35,6 +35,7 @@ function difference(a: any[], b: any[]): any[] {
 
 export {
   version,
+  author,
   union,
   unionByKey,
   intersection,
@@ -43,6 +44,7 @@ export {
 
 export default {
   version,
+  author,
   union,
   unionByKey,
   intersection,
