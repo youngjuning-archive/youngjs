@@ -1,29 +1,27 @@
+// yarn add eslint eslint-config-airbnb-base eslint-plugin-import -D
 module.exports = {
-  root: true,
-  env: {
-    browser: true,
-    node: true,
-    jest: true,
+  "extends": ["airbnb-base"],
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "impliedStrict": true,
+    }
   },
-  extends: [
-    'plugin:vue/essential',
-    'airbnb-base',
-  ],
-  rules: {
-    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'linebreak-style': [2, 'unix'],
-    semi: [2, 'never'],
-    'max-len': [0, { code: 200 }],
-    'object-curly-newline': 0,
-    'global-require': 0,
-    'no-unused-vars': 1,
-    'no-shadow': [2, { allow: ['err', 'error'] }],
-    'no-lone-blocks': 0,
-    'no-plusplus': 0,
-    'no-param-reassign': 0,
+  "env": {
+    "node": true,
+    "jest": true,
+    "browser": true
   },
-  parserOptions: {
-    parser: 'babel-eslint',
+  "rules": {
+    "semi": [2, "never"],
+    "comma-dangle": 0,
+    "global-require": 0,
+    "object-curly-newline": 0,
+    "object-curly-spacing": 0,
+    "linebreak-style": [2, "unix"],
+    "lines-between-class-members": [2, "always", { exceptAfterSingleLine: true }],
+    "no-use-before-define": [2, { "functions": true, "classes": true, "variables": false }],
+    "prefer-destructuring": [2, { "array": false, "object": true }]
   },
 }

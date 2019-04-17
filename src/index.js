@@ -1,12 +1,13 @@
-import YArray from './YArray'
-import YDate from './YDate'
+import { version } from '../package.json'
+
+// 数组并集
+const union = (a = [], b = []) => Array.from(new Set(a.concat(b)))
 
 export {
-  YArray,
-  YDate,
+  union
 }
 
 export default {
-  YArray,
-  YDate,
+  version,
+  union
 }

@@ -1,20 +1,66 @@
 // rollup.config.js
-// https://juejin.im/post/5c073d86f265da615a419989
-// https://juejin.im/entry/57e159cd67f3560056bd2ba5
-// https://segmentfault.com/a/1190000010628352
+import json from 'rollup-plugin-json'
 import babel from 'rollup-plugin-babel'
+import resolve from 'rollup-plugin-node-resolve'
+import commonjs from 'rollup-plugin-commonjs'
+import { browser, main, module, version } from './package.json'
 
-export default {
-  input: 'src/index.js',
-  output: {
-    file: './dist/youngjs.js',
-    name: 'myBundle',
-    format: 'umd', // amd,cjs,es,iife,umd
-    sourcemap: 'inline'
+const banner =
+  '/*!\n' +
+  ` * youngjs v${version}\n` +
+  ` * (c) 2018-${new Date().getFullYear()} youngjuning\n` +
+  ' * Released under the MIT License.\n' +
+  ' */'
+const footer = '/* follow me on weibo! @杨俊俊宁 */'
+
+export default [
+  // browser-friendly UMD build
+  {
+    input: 'src/index.js',
+    output: {
+      name: 'youngjs',
+      file: browser,
+      format: 'umd',
+      exports: 'named',
+      sourcemap: true,
+      banner,
+      footer
+    },
+    plugins: [
+      json(),
+      babel(),
+      resolve(), // 告诉 Rollup 如何查找外部模块
+      commonjs() // 将 CommonJS 转换成 ES2015 模块
+    ],
+    // 指出应将哪些模块视为外部模块
+    external: ['dayjs', 'deepcopy', 'fast-deep-equal', 'kind-of']
   },
-  plugins: [
-    babel({
-      exclude: 'node_modules/**'
-    })
-  ]
-}
+  // CommonJS (for Node) and ES module (for bundlers) build.
+  {
+    input: 'src/index.js',
+    output: [
+      {
+        file: main,
+        format: 'cjs',
+        exports: 'named',
+        sourcemap: true,
+        banner,
+        footer
+      },
+      {
+        file: module,
+        format: 'es',
+        sourcemap: true,
+        banner,
+        footer
+      },
+    ],
+    plugins: [
+      json(),
+      babel(),
+      resolve(),
+      commonjs()
+    ],
+    external: ['dayjs', 'deepcopy', 'fast-deep-equal', 'kind-of']
+  }
+]

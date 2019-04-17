@@ -1,4 +1,4 @@
-**node_modules/**
+# /node_modules/* and /bower_components/* ignored by default
 dist/
 _tests_/
 *.config.js
