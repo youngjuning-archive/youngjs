@@ -1,0 +1,38 @@
+{
+  "defaultSeverity": "error",
+  "extends": [
+    "tslint:recommended",
+    "tslint-react",
+    "tslint-mobx"
+  ],
+  "jsRules": {},
+  "rules": {
+    "semicolon": [
+      true,
+      "never"
+    ],
+    "interface-name": false,
+    "object-literal-sort-keys": false,
+    "no-console": [
+      true,
+      "log",
+      "error"
+    ],
+    "quotemark": [
+      true,
+      "single",
+      "jsx-double"
+    ],
+    "max-classes-per-file": [
+      true,
+      2,
+      "exclude-class-expressions"
+    ],
+    "trailing-comma": false,
+    "indent": [
+      true,
+      "spaces",
+      2
+    ]
+  }
+}
