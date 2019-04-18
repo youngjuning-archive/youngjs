@@ -20,7 +20,9 @@
   },
   "keywords": [
     "es6",
-    "javascript"
+    "javascript",
+    "typescript",
+    "youngjuning"
   ],
   "author": "youngjuning <youngjuning@aliyun.com>",
   "license": "MIT",

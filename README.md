@@ -8,29 +8,13 @@
 $ yarn add @youngjs/youngjs
 ```
 
-## 函数声明？ 文档？
+## 函数声明
 
-> 本库源码使用 typescript 编写，利用typescript**类型注解**的特性实现代码即文档的效果。
-> 下面是本库的声明文件，声明了期望的参数类型和返回值类型。
+本库源码使用 typescript 编写，利用typescript**类型注解**的特性实现代码即文档的效果。
 
-```ts
-// 库的版本、库的作者
-import { author, version } from '../package.json';
-// 数组数集操作
-// 基本类型数组并集（也可用作数组去重操作）
-declare function union(a?: any[], b?: any[]): any[];
-// 根据指定key，对数组对象进行合并去重
-declare function unionByKey(a: object[] | undefined, b: object[] | undefined, key: string): object[];
-// 基本类型数组交集
-declare function intersection(a?: any[], b?: any[]): any[];
-// 根据指定key，求对象数组的交集
-// unionKey 是对象的唯一标示，一般为objectId、id之类的
-declare function intersectionByKey(a: object[] | undefined, b: object[] | undefined, key: string, unionKey?: string): object[];
-// 基本类型数组差集
-declare function difference(a?: any[], b?: any[]): any[];
-// 根据指定key，求对象数组的差集
-declare function differenceByKey(a: object[] | undefined, b: object[] | undefined, key: string): object[];
-```
+![](https://i.loli.net/2019/04/18/5cb89c5730341.png)
+
+![](https://i.loli.net/2019/04/18/5cb89c8ba8266.png)
 
 ## 示例
 
@@ -98,4 +82,104 @@ const differenceByVip = young.differenceByKey(users, users1, 'vip')
   { vip: false, name: '赵六' }
 ] 
 **/
+```
+
+### 数组分组
+
+**数据:**
+
+```js
+const students = [
+  {
+    name: '杨俊宁',
+    province: '河南',
+  },
+  {
+    name: '宋光刚',
+    province: '河南',
+  },
+  {
+    name: '谢晧曜',
+    province: '江苏',
+  },
+  {
+    name: '李珂威',
+    province: '河南',
+  }
+]
+```
+
+**groupByKey:**
+
+```js
+import young from '@youngjs/youngjs'
+young.groupByKey(array,"province")
+```
+
+**结果:**
+
+```js
+[
+  {
+    province: '河南', 
+    data: [
+      { name: '杨俊宁', province: '河南' }, 
+      { name: '宋光刚', province: '河南' }, 
+      { name: '李珂威', province: '河南' }
+    ]
+  }, 
+  {
+    province: '江苏',
+    data: [
+      { name: '谢晧曜', province: '江苏' }
+    ]
+  }
+]
+```
+
+## 删除数组项
+
+```js
+import young from '@youngjs/youngjs'
+young.removeItemByItem(['张三', '李四', '王五'], '王五')
+/*
+['张三', '李四']
+*/
+young.removeItemByIndex(['张三', '李四', '王五'], 1)
+/*
+['张三', '王五']
+*/
+young.removeItemByKey(
+  [
+    {name: '张三'},
+    {name: '李四'},
+    {name: '王五'}
+  ],
+  'name',
+  '张三'
+)
+/*
+[
+  { name: '李四' },
+  { name: '王五' }
+] 
+*/
+```
+
+### 数组排序
+
+```js
+import young from '@youngjs/youngjs'
+young.sort([1, 100, 1000, 99, 80]) // [ 1, 80, 99, 100, 1000 ] 
+young.sort([1, 100, 1000, 99, 80], false) // [ 1000, 100, 99, 80, 1 ] 
+young.sortByKey([
+  { name: '张三', age: 16 }, { name: '李四', age: 26 }, { name: '王五', age: 13 }
+], 'age')
+/*
+[
+  { name: '王五', age: 13 }, 
+  { name: '张三', age: 16 }, 
+  { name: '李四', age: 26 }
+] 
+*/
 ```

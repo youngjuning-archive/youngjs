@@ -45,9 +45,7 @@ function intersectionByKey(a: object[] = [], b: object[] = [], key: string, unio
 
 // 基本类型数组差集
 function difference(a: any[]= [], b: any[]= []): any[] {
-  const aSet = new Set(a)
-  const bSet = new Set(b)
-  return Array.from(new Set(a.concat(b).filter((v) => !aSet.has(v) || !bSet.has(v))))
+  return Array.from(new Set(a.concat(b).filter((v) => !new Set(a).has(v) || !new Set(b).has(v))))
 }
 
 // 根据指定key，求对象数组的差集
@@ -66,6 +64,100 @@ function differenceByKey(a: object[] = [], b: object[] = [], key: string): objec
   return result
 }
 
+// 根据对象的指定key进行分组
+function groupByKey(array: object[] = [], key: string): object[] {
+  const keys: any = {}
+  const result: object[] = []
+
+  array.forEach((item: any) => {
+    if (!keys[item[key]]) {
+      result.push({
+        [key]: item[key],
+        data: [item],
+      })
+      keys[item[key]] = `${item[key]}`
+    } else {
+      result.forEach((tempItem: any) => {
+        if (tempItem[key] === item[key]) {
+          tempItem.data.push(item)
+        }
+      })
+    }
+  })
+  return result
+}
+
+// 根据值删除普通数组指定项
+function removeItemByItem(array: any[] = [], rItem: any) {
+  return array.filter((item) => item !== rItem)
+}
+
+// 根据索引删除普通数组指定项
+function removeItemByIndex(array: any[] = [], rIndex: any) {
+  return array.filter((item, index) => index !== rIndex)
+}
+
+// 根据指定key和value，删除对象数组指定项
+function removeItemByKey(array: any[] = [], key: string, value: string) {
+  return array.filter((item) => item[key] !== value)
+}
+
+// fit antd picker Data
+function fitAntdPickerData(array: object[] = [], label: any, value: any) {
+  return array.map((item: any) => ({
+    value: item[value],
+    label: item[label],
+  }))
+}
+
+// 对普通数组排序
+function sort(array: any[], ascend: boolean = true) {
+  if (ascend) {
+    return array.sort((a: any, b: any) => {
+      if (a > b) {
+        return 1
+      }
+      if (a < b) {
+        return -1
+      }
+      return 0
+    })
+  }
+  return array.sort((a: any, b: any) => {
+    if (a > b) {
+      return -1
+    }
+    if (a < b) {
+      return 1
+    }
+    return 0
+  })
+}
+
+// 根据指定key对对象数组排序（默认为升序）
+const sortByKey = (array: object[] = [], key: string, ascend: boolean = true) => {
+  if (ascend) {
+    return array.sort((a: any, b: any) => {
+      if (a[key] > b[key]) {
+        return 1
+      }
+      if (a[key] < b[key]) {
+        return -1 // a[key] < b[key], a 会被排列到 b 之前
+      }
+      return 0
+    })
+  }
+  return array.sort((a: any, b: any) => {
+    if (a[key] > b[key]) {
+      return -1 // a[key] > b[key], a 会被排列到 b 之前
+    }
+    if (a[key] < b[key]) {
+      return 1
+    }
+    return 0
+  })
+}
+
 export {
   version,
   author,
@@ -73,8 +165,15 @@ export {
   unionByKey,
   intersection,
   intersectionByKey,
+  difference,
   differenceByKey,
-  difference
+  groupByKey,
+  removeItemByItem,
+  removeItemByIndex,
+  removeItemByKey,
+  fitAntdPickerData,
+  sort,
+  sortByKey
 }
 
 export default {
@@ -84,6 +183,13 @@ export default {
   unionByKey,
   intersection,
   intersectionByKey,
-  differenceByKey,
   difference,
+  differenceByKey,
+  groupByKey,
+  removeItemByItem,
+  removeItemByIndex,
+  removeItemByKey,
+  fitAntdPickerData,
+  sort,
+  sortByKey
 }
