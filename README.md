@@ -63,8 +63,7 @@ const users1 = [
   { vip: true, name: '王五' },
   { vip: false, name: '赵六' }
 ]
-const concatData = users.concat(users1)
-
+// 根据name求并集
 const unionByName = young.unionByKey(users, users1, 'name')
 /**
 [
@@ -74,6 +73,7 @@ const unionByName = young.unionByKey(users, users1, 'name')
   { vip: false, name: '赵六' }
 ] 
 **/
+// 根据name求并集，然后根据vip求交集
 const intersectionByVip = young.intersectionByKey(users, users1, 'vip','name')
 /**
 [
@@ -82,6 +82,7 @@ const intersectionByVip = young.intersectionByKey(users, users1, 'vip','name')
   { vip: true, name: '王五' }
 ] 
 **/
+// 根据vip求差集
 const differenceByVip = young.differenceByKey(users, users1, 'vip')
 /**
 [
