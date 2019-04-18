@@ -35,6 +35,14 @@ declare function differenceByKey(a: object[] | undefined, b: object[] | undefine
 ### 基础类型数组的数集操作
 
 ```js
+import young from '@youngjs/youngjs'
+
+const a = [1,2,3]
+const b = [1,2,3,4]
+
+const unionData = young.union(a,b) // [1,2,3,4]
+const intersectionData = young.intersection(a,b) // [1,2,3]
+const differenceData = young.difference(a,b) // [4]
 ```
 
 ### 对象数组的数集操作
@@ -57,7 +65,7 @@ const concatData = users.concat(users1)
 
 const unionByName = young.unionByKey(users, users1, 'name')
 /**
-[ 
+[
   { vip: true, name: '张三' }, 
   { vip: true, name: '李四' }, 
   { vip: true, name: '王五' }, 
@@ -66,7 +74,7 @@ const unionByName = young.unionByKey(users, users1, 'name')
 **/
 const intersectionByVip = young.intersectionByKey(users, users1, 'vip','name')
 /**
-[ 
+[
   { vip: true, name: '张三' }, 
   { vip: true, name: '李四' }, 
   { vip: true, name: '王五' }
@@ -74,7 +82,7 @@ const intersectionByVip = young.intersectionByKey(users, users1, 'vip','name')
 **/
 const differenceByVip = young.differenceByKey(users, users1, 'vip')
 /**
-[ 
+[
   { vip: false, name: '赵六' }
 ] 
 **/
