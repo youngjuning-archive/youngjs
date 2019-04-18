@@ -1,6 +1,6 @@
 import { author, version } from '../package.json'
 
-// 数组并集
+// 基本类型数组并集
 function union(a: any[] = [], b: any[]= []): any[] {
   return Array.from(new Set(a.concat(b)))
 }
@@ -17,24 +17,22 @@ function unionByKey(a: object[] = [], b: object[] = [], key: string): object[] {
       result.push(item)
     }
   })
+
   return result
 }
 
-// 数组交集
+// 基本类型数组交集
 function intersection(a: any[] = [], b: any[] = []): any[] {
   return Array.from(new Set(a.filter((v: any) => new Set(b).has(v))))
 }
 
 // 根据指定key，求对象数组的交集
-function intersectionByKey(a: object[] = [], b: object[] = [], key: string): object[] {
-  const unionArr = a.concat(b)
+function intersectionByKey(a: object[] = [], b: object[] = [], key: string, unionKey: string = key): object[] {
+  const unionArr = unionByKey(a, b, unionKey)
   const aMap = a.map((item: any) => item[key])
   const bMap = b.map((item: any) => item[key])
   const intersectionArr = intersection(aMap, bMap)
   const result: object[] = []
-
-  console.log('unionArr:', unionArr)
-  console.log('intersectionArr:', intersectionArr)
 
   unionArr.forEach((x: any) => {
     if (intersectionArr.some((y: any) => x[key] === y)) {
@@ -45,7 +43,7 @@ function intersectionByKey(a: object[] = [], b: object[] = [], key: string): obj
   return result
 }
 
-// 数组差集
+// 基本类型数组差集
 function difference(a: any[]= [], b: any[]= []): any[] {
   const aSet = new Set(a)
   const bSet = new Set(b)
