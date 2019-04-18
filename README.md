@@ -36,36 +36,15 @@ declare function differenceByKey(a: object[] | undefined, b: object[] | undefine
 import young from '@youngjs/youngjs'
 
 const users = [
-  {
-    vip: true,
-    name: '张三',
-  },
-  {
-    vip: true,
-    name: '李四',
-  },
-  {
-    vip: true,
-    name: '王五',
-  }
+  { vip: true, name: '张三' },
+  { vip: true, name: '李四' },
+  { vip: true, name: '王五' }
 ]
 const users1 = [
-  {
-    vip: true,
-    name: '张三',
-  },
-  {
-    vip: true,
-    name: '李四',
-  },
-  {
-    vip: true,
-    name: '王五',
-  },
-  {
-    vip: false,
-    name: '赵六',
-  },
+  { vip: true, name: '张三' },
+  { vip: true, name: '李四' },
+  { vip: true, name: '王五' }
+  { vip: false, name: '赵六' },
 ]
 const concatData = users.concat(users1)
 
