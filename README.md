@@ -32,6 +32,13 @@ declare function differenceByKey(a: object[] | undefined, b: object[] | undefine
 
 ## Demo
 
+### 基础类型数组的数集操作
+
+```js
+```
+
+### 对象数组的数集操作
+
 ```js
 import young from '@youngjs/youngjs'
 
