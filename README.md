@@ -29,3 +29,67 @@ declare function difference(a?: any[], b?: any[]): any[];
 // 根据指定key，求对象数组的差集
 declare function differenceByKey(a: object[] | undefined, b: object[] | undefined, key: string): object[];
 ```
+
+## Demo
+
+```js
+import young from '@youngjs/youngjs'
+
+const users = [
+  {
+    vip: true,
+    name: '张三',
+  },
+  {
+    vip: true,
+    name: '李四',
+  },
+  {
+    vip: true,
+    name: '王五',
+  }
+]
+const users1 = [
+  {
+    vip: true,
+    name: '张三',
+  },
+  {
+    vip: true,
+    name: '李四',
+  },
+  {
+    vip: true,
+    name: '王五',
+  },
+  {
+    vip: false,
+    name: '赵六',
+  },
+]
+const concatData = users.concat(users1)
+
+const unionByName = young.unionByKey(users, users1, 'name')
+/**
+[ 
+  { vip: true, name: '张三' }, 
+  { vip: true, name: '李四' }, 
+  { vip: true, name: '王五' }, 
+  { vip: false, name: '赵六' }
+] 
+**/
+const intersectionByVip = young.intersectionByKey(users, users1, 'vip','name')
+/**
+[ 
+  { vip: true, name: '张三' }, 
+  { vip: true, name: '李四' }, 
+  { vip: true, name: '王五' }
+] 
+**/
+const differenceByVip = young.differenceByKey(users, users1, 'vip')
+/**
+[ 
+  { vip: false, name: '赵六' }
+] 
+**/
+```
