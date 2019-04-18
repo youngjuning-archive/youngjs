@@ -15,12 +15,17 @@ $ yarn add @youngjs/youngjs
 // 库的版本、库的作者
 import { author, version } from '../package.json';
 // 数组数集操作
-// 数组并集（也可用作数组去重操作）
+// 基本类型数组并集（也可用作数组去重操作）
 declare function union(a?: any[], b?: any[]): any[];
 // 根据指定key，对数组对象进行合并去重
 declare function unionByKey(a: object[] | undefined, b: object[] | undefined, key: string): object[];
+// 基本类型数组交集
 declare function intersection(a?: any[], b?: any[]): any[];
+// 根据指定key，求对象数组的交集
+// unionKey 是对象的唯一标示，一般为objectId、id之类的
 declare function intersectionByKey(a: object[] | undefined, b: object[] | undefined, key: string, unionKey?: string): object[];
+// 基本类型数组差集
 declare function difference(a?: any[], b?: any[]): any[];
+// 根据指定key，求对象数组的差集
 declare function differenceByKey(a: object[] | undefined, b: object[] | undefined, key: string): object[];
 ```
