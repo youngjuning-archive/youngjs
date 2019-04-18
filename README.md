@@ -32,7 +32,16 @@ declare function difference(a?: any[], b?: any[]): any[];
 declare function differenceByKey(a: object[] | undefined, b: object[] | undefined, key: string): object[];
 ```
 
-## Demo
+## 示例
+
+### 库基本信息
+
+```js
+import young from '@youngjs/youngjs'
+
+const version = young.version // *.*.*
+const author = young.author // youngjuning <youngjuning@aliyun.com>
+```
 
 ### 基础类型数组的数集操作
 
