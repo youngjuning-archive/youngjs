@@ -43,8 +43,8 @@ const users = [
 const users1 = [
   { vip: true, name: '张三' },
   { vip: true, name: '李四' },
-  { vip: true, name: '王五' }
-  { vip: false, name: '赵六' },
+  { vip: true, name: '王五' },
+  { vip: false, name: '赵六' }
 ]
 const concatData = users.concat(users1)
 
