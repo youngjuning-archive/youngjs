@@ -2,15 +2,14 @@
 import json from 'rollup-plugin-json'
 import resolve from 'rollup-plugin-node-resolve'
 import commonjs from 'rollup-plugin-commonjs'
-import { browser, main, module, version } from './package.json'
 import typescript from 'rollup-plugin-typescript2'
+import { browser, main, module, version } from './package.json'
 
-const banner =
-  '/*!\n' +
-  ` * youngjs v${version}\n` +
-  ` * (c) 2018-${new Date().getFullYear()} youngjuning\n` +
-  ' * Released under the MIT License.\n' +
-  ' */'
+const banner = '/*!\n'
+  + ` * youngjs v${version}\n`
+  + ` * (c) 2018-${new Date().getFullYear()} youngjuning\n`
+  + ' * Released under the MIT License.\n'
+  + ' */'
 const footer = '/* follow me on weibo! @杨俊俊宁 */'
 
 export default [
