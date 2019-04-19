@@ -158,6 +158,16 @@ const sortByKey = (array: object[] = [], key: string, ascend: boolean = true) =>
   })
 }
 
+/**
+ * 根据对象数组的某个key去重
+ * @param filters 过滤数组
+ * @param array 被过滤数组
+ * @param key 过滤key
+ */
+function filterByKey(filters: object[] = [], array: object[]  = [], key: string): object[] {
+  return filters.map((filterItem: any) => array.filter((item: any) => filterItem[key] !== item[key]))[0]
+}
+
 export {
   version,
   author,
@@ -173,7 +183,8 @@ export {
   removeItemByKey,
   fitAntdPickerData,
   sort,
-  sortByKey
+  sortByKey,
+  filterByKey
 }
 
 export default {
@@ -191,5 +202,6 @@ export default {
   removeItemByKey,
   fitAntdPickerData,
   sort,
-  sortByKey
+  sortByKey,
+  filterByKey
 }
