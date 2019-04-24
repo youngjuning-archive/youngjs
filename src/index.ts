@@ -158,14 +158,20 @@ const sortByKey = (array: object[] = [], key: string, ascend: boolean = true) =>
   })
 }
 
-/**
- * 根据对象数组的某个key去重
- * @param filters 过滤数组
- * @param array 被过滤数组
- * @param key 过滤key
- */
-function filterByKey(filters: object[] = [], array: object[]  = [], key: string): object[] {
-  return filters.map((filterItem: any) => array.filter((item: any) => filterItem[key] !== item[key]))[0]
+function reduced(array: any[] = []) {
+  const newArr: any = []
+
+  function fun(arr: any[]) {
+    arr.forEach((item) => {
+      if (Array.isArray(item)) {
+        fun(item)
+      } else {
+        newArr.push(item)
+      }
+    })
+  }
+  fun(array)
+  return newArr
 }
 
 export {
@@ -184,7 +190,7 @@ export {
   fitAntdPickerData,
   sort,
   sortByKey,
-  filterByKey
+  reduced
 }
 
 export default {
@@ -203,5 +209,5 @@ export default {
   fitAntdPickerData,
   sort,
   sortByKey,
-  filterByKey
+  reduced
 }
