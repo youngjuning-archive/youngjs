@@ -158,6 +158,7 @@ const sortByKey = (array: object[] = [], key: string, ascend: boolean = true) =>
   })
 }
 
+// 多维数组转一维数组
 function reduced(array: any[] = []) {
   const newArr: any = []
 

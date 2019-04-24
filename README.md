@@ -8,14 +8,6 @@
 $ yarn add @youngjs/youngjs
 ```
 
-## 函数声明
-
-本库源码使用 typescript 编写，利用typescript**类型注解**的特性实现代码即文档的效果。
-
-![](https://i.loli.net/2019/04/18/5cb89c5730341.png)
-
-![](https://i.loli.net/2019/04/18/5cb89c8ba8266.png)
-
 ## 示例
 
 ### 库基本信息
@@ -182,4 +174,14 @@ young.sortByKey([
   { name: '李四', age: 26 }
 ] 
 */
+```
+
+### 数组降维
+
+> 支持多维降维
+
+```js
+import young from '@youngjs/youngjs'
+young.reduced([1, 2, 3, [4, 5, 6, [7, 8, 9]], 10])
+// [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 ```
