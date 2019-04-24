@@ -11,3 +11,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/lang/zh-CN/
 - Add reduced function to reduce the multidimensional Array
 
 [Unreleased]: https://github.com/young-js/youngjs/compare/v0.7.2...HEAD
+[0.7.2]: https://github.com/young-js/youngjs/compare/v0.7.1...v0.7.2
