@@ -135,7 +135,7 @@ function sort(array: any[], ascend: boolean = true) {
 }
 
 // 根据指定key对对象数组排序（默认为升序）
-const sortByKey = (array: object[] = [], key: string, ascend: boolean = true) => {
+function sortByKey(array: object[] = [], key: string, ascend: boolean = true) {
   if (ascend) {
     return array.sort((a: any, b: any) => {
       if (a[key] > b[key]) {
