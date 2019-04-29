@@ -175,6 +175,21 @@ function reduced(array: any[] = []) {
   return newArr
 }
 
+function getHMS(time = 0, zero = false) {
+  const hours = Math.floor(time / 3600)
+  const minutes = Math.floor((time - (hours * 3600)) / 60)
+  const seconds = Math.floor((time - (hours * 3600) - (minutes * 60)))
+  if (zero) {
+    return {
+      hours: (hours >= 10) ? hours : `0${hours}`,
+      minutes: (minutes >= 10) ? minutes : `0${minutes}`,
+      seconds: (seconds >= 10) ? seconds : `0${seconds}`
+    }
+  } else {
+    return {hours, minutes, seconds}
+  }
+}
+
 export {
   version,
   author,
@@ -191,7 +206,8 @@ export {
   fitAntdPickerData,
   sort,
   sortByKey,
-  reduced
+  reduced,
+  getHMS
 }
 
 export default {
@@ -210,5 +226,6 @@ export default {
   fitAntdPickerData,
   sort,
   sortByKey,
-  reduced
+  reduced,
+  getHMS
 }
