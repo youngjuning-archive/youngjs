@@ -190,6 +190,8 @@ function getHMS(time = 0, zero = false) {
   }
 }
 
+const buildTimesRegx = (n: number): string => require('./buildTimesRegx')(n)
+
 export {
   version,
   author,
@@ -207,7 +209,8 @@ export {
   sort,
   sortByKey,
   reduced,
-  getHMS
+  getHMS,
+  buildTimesRegx
 }
 
 export default {
@@ -227,5 +230,6 @@ export default {
   sort,
   sortByKey,
   reduced,
-  getHMS
+  getHMS,
+  buildTimesRegx
 }
