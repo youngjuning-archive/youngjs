@@ -1,6 +1,6 @@
 {
   "name": "@youngjs/youngjs",
-  "version": "0.7.4",
+  "version": "0.7.5",
   "description": "javascript util",
   "main": "dist/youngjs.cjs.js",
   "module": "dist/youngjs.esm.js",
