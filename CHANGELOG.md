@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/lang/zh-CN/
 
 ## [Unreleased]
 
+## [0.7.4] - 2019-5-16
+### Added
+- Add buildTimesRegx function
+
 ## [0.7.3] - 2019-4-29
 ### Added
 - Add getHMS function
@@ -14,6 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/lang/zh-CN/
 ### Added
 - Add reduced function to reduce the multidimensional Array
 
-[Unreleased]: https://github.com/young-js/youngjs/compare/v0.7.3...HEAD
+[Unreleased]: https://github.com/young-js/youngjs/compare/v0.7.4...HEAD
+[0.7.3]: https://github.com/young-js/youngjs/compare/v0.7.3...v0.7.4
 [0.7.3]: https://github.com/young-js/youngjs/compare/v0.7.2...v0.7.3
-[0.7.2]: https://github.com/young-js/youngjs/compare/v0.7.1...v0.7.2
+[0.0.1]: https://github.com/young-js/react-native-office-viewer/releases/tag/v0.7.2
