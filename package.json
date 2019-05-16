@@ -8,6 +8,7 @@
   "scripts": {
     "test": "jest",
     "build": "rollup -c rollup.config.js",
+    "preversion": "git push --tags",
     "prepublishOnly": "rollup -c rollup.config.js"
   },
   "files": [
