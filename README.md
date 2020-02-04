@@ -1,3 +1,5 @@
+> 请使用 lodash，这只是我练习rollup的demo
+
 # youngjs
 
 > 实用前端数据处理工具函数
